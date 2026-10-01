@@ -10,3 +10,6 @@
 
 .workspace-top > .pill{white-space:nowrap;flex-shrink:0}
 .ring > span{text-align:center}
+
+/* Phase 2: compact unit navigation, existing palette and responsive layout. */
+.unit-choice{margin:0 0 18px}.unit-choice [aria-pressed="true"]{background:#e6eddc;border-color:#698c71}

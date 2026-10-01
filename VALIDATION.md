@@ -1,33 +1,25 @@
-# Phase 1.1 validation
+# Phase 2 validation
 
-Source: exact Library file AVANZA-Phase-1(1).zip, extracted before editing.
+Source: exact AVANZA-Phase-1.1(1).zip.
 
-## Passed in headless Chromium
-- Full Learn sequence and refresh/resume.
-- All questions in Recognize, Build, Type and Read & Write.
-- Failed attempts and successful fresh retries in every scored activity.
-- Recognize: 7/10 fails; exactly 8/10 passes.
-- Build and Type: 6/8 fails; 7/8 passes.
-- Read & Write: 4/6 fails; 5/6 passes.
-- Corrections do not inflate first-response scores; wrong responses persist across reload.
-- Incorrect typed answers remain visible/editable and refocus the field.
-- Current edited values are reevaluated with Enter and Check; no incorrect-answer dead end.
-- The reported Sofia case: select “Guatemala” inside the existing sentence, replace it with “Honduras,” and immediately resubmit successfully.
-- Autofocus on initial and subsequent written questions; Enter submission.
-- Type translation directions and labels.
-- English answer options, age number words and reading sentence starters.
-- Capitalization, whitespace, final punctuation and straight/curly contraction handling.
-- Sequential locks, completion, mastery and 5/5 unit state after reload.
-- Completion proof is absent before mastery and available after full completion.
-- Blank teacher email gives a configuration message; a temporary test setting produces a correctly addressed and encoded mailto draft with student name, unit, 5/5 and 80% requirement. No email was sent.
-- Flashcards: Spanish front, English reveal, simple review, next card, resume and final card.
-- Phase 1 migration retains Learn, flashcard position and archived historical practice without inventing mastery scores.
-- No JavaScript runtime errors during the student journey.
+Passed automated headless Chromium checks at 1280×900 and 390×740:
+- Completed all five activities in both units.
+- Unit 2 locked before Unit 1 completion and available afterward.
+- Below-80% Recognize attempt withheld completion; successful retry passed.
+- Incorrect Type and reading responses stayed editable, regained focus, and accepted current corrected input through Enter/Check.
+- Corrections did not alter first-response scoring (9/10 Type; 6/7 reading).
+- Unit 1 Honduras short answer accepted with scaffold retained; capitalization/punctuation and full-sentence equivalents verified.
+- Unit 2 reading accepted paper; Type accepted I do not understand.
+- Both completion records survived refresh, independently.
+- Both email drafts used the single configuration, student name, and correct unit subject/body. A temporary in-memory test address was used; no email was sent, and config.js was not edited.
+- Learn, Recognize, Build, Type, reading, and Flashcards advance positioning checked at desktop and phone viewport sizes; typed questions retained input focus.
+- No horizontal overflow or JavaScript runtime errors in these flows.
+- Desktop home and phone flashcard screenshots visually reviewed.
 
-## Layout and packaging
-Desktop (1365px) and mobile (390px) screenshots inspected. Reading, completion, proof and flashcard layouts checked for horizontal overflow. Original stylesheet/design retained with small additions for hidden controls, status and wrapping.
+Additional checks:
+- Existing Phase 1.1 storage fixture preserved every original field, including completion/mastery, while adding independent Unit 2 state.
+- 7/10 fails and 8/10 passes the unchanged mastery engine; corrections retain original score.
+- Teacher configuration and mastery engine byte-for-byte identical to source.
+- All JavaScript syntax, relative asset paths, ZIP integrity, and root index.html checked.
 
-JavaScript syntax, ZIP integrity, root index.html and relative asset paths checked before packaging.
-
-## Limits
-Testing used desktop Chromium and simulated mobile viewports. Physical phone keyboards, other browser engines, OS email-client launch/delivery, live GitHub Pages and district network access were not tested. Email drafting was validated without sending mail. Test the deployed site on a school device before classroom use.
+Limits: phone checks use a Chromium viewport simulation, not a physical iOS/Android keyboard. Actual mail application delivery and a live GitHub Pages deployment were not performed. The source teacher email was blank and remains blank; retain the deployed configured js/config.js or configure it before uploading.

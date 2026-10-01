@@ -24,5 +24,8 @@ window.AvanzaProgress = (() => {
   state.unitComplete=state.completed.length===5;
   localStorage.setItem(key,JSON.stringify(state));
  }catch{available=false;}
+ // Unit 1 stays at the original root; Unit 2 has its own progress object.
+ state.unit2={...fresh(),...(state.unit2||{})};
+ state.unit2.completed=activityIds(state.unit2.completed).filter(i=>i===0||state.unit2.mastery?.[i]?.passed===true);
  return {get:()=>state,available:()=>available,save(){try{localStorage.setItem(key,JSON.stringify(state));available=true;}catch{available=false;}return available;}};
 })();

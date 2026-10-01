@@ -33,9 +33,9 @@ window.AVANZA_CONTENT = {
  read:[
  {q:'What is her name? / ¿Cómo se llama?',options:['Ana','Sofia','Carlos'],answer:'Sofia',hint:'Busca “My name is…” en el texto.'},
  {q:'How old is Sofia? / ¿Cuántos años tiene?',options:['fifteen','sixteen','seventeen'],answer:'sixteen',hint:'Sixteen = dieciséis.'},
- {task:'answer', starter:'She is from...', q:'Where is Sofia from?',answers:['She is from Honduras.','Sofia is from Honduras.'],hint:'Completa: She is from ____. Revisa el país de Sofia en el texto.'},
- {task:'answer', starter:'She is...', q:'How is Sofia today?',answers:['She is happy.','Sofia is happy.','She is happy today.','Sofia is happy today.'],hint:'Completa: She is ____.'},
- {task:'answer', starter:'He is from...', q:'Where is Carlos from?',answers:['He is from Guatemala.','Carlos is from Guatemala.'],hint:'Completa: He is from ____. Revisa el país de Carlos en el texto.'},
+ {task:'answer', starter:'She is from...', q:'Where is Sofia from?',answers:['She is from Honduras.','Sofia is from Honduras.','Honduras'],hint:'Completa: She is from ____. Revisa el país de Sofia en el texto.'},
+ {task:'answer', starter:'She is...', q:'How is Sofia today?',answers:['She is happy.','Sofia is happy.','She is happy today.','Sofia is happy today.','Happy'],hint:'Completa: She is ____.'},
+ {task:'answer', starter:'He is from...', q:'Where is Carlos from?',answers:['He is from Guatemala.','Carlos is from Guatemala.','Guatemala'],hint:'Completa: He is from ____. Revisa el país de Carlos en el texto.'},
  {task:'translate', starter:'We are...', q:'Somos estudiantes.',answers:['We are students.'],hint:'We + are + students.'}
  ]
 };

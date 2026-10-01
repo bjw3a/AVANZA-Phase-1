@@ -1,45 +1,32 @@
-# AVANZA — Phase 1.1
-## Aprende inglés
+# AVANZA — Phase 2
+Aprende inglés
 
-Refinement of the exact AVANZA-Phase-1(1).zip build. The original design, five-activity flow, Unit 1 reading, Build interactions, future-unit placeholders and offline static architecture are preserved.
+Expanded directly from AVANZA-Phase-1.1(1).zip. Static HTML/CSS/JavaScript; no build, server API, accounts, or external dependencies.
 
-## Teacher email: one setting
-Open js/config.js and enter your school email between the quotes for TEACHER_EMAIL. This is the only teacher email setting. It ships blank intentionally. If blank, the app explains that the teacher must configure it and does not open an unaddressed email.
+## Changes
+- Unit 2 — School & Classroom: 30 Learn cards, 12 Recognize questions, 10 Build sentences, 10 Type items, and a 77-word reading with 7 questions.
+- Unit 2 unlocks after Unit 1's five core activities. Each scored activity retains the 80% first-response mastery rule.
+- Independent saved Unit 2 progress, completion checkmarks, and completion email.
+- Simple Unit 1 / Unit 2 flashcard selection; review remains optional.
+- Reading comprehension accepts correct short answers, including Honduras, while retaining sentence starters. Build and Type still require the target structure.
+- Advancing positions the activity heading or reading question on screen. Typed fields receive focus without a competing focus scroll.
 
-After the unit is complete, “Enviar comprobante · Send Completion” asks for the student's name, then opens a mailto draft. The student must press Send in their configured email application. No email is sent automatically; the app cannot verify delivery. Name is used for the draft and is not stored. The draft includes the unit, 5/5 completion, 80% requirement and activity results. It is browser-generated, editable proof, not a tamper-proof record.
+## Upload to GitHub Pages
+Extract the ZIP. Upload its contents to the same location as the existing app, with index.html at the repository's serving root. All application URLs are relative, including data/unit2.js.
 
-## Mastery
-- Learn completes by finishing its 28-card instructional sequence; it is unscored.
-- Recognize, Build, Type and Read & Write require at least 80% first-response accuracy.
-- A blank response is not scored. A nonblank submitted response is scored once per question.
-- Wrong answers remain correctable with unlimited attempts. Corrections do not overwrite the first-response score.
-- Students correct each question before moving on. At the end, a score below 80% offers a fresh attempt without unlocking the next activity.
-- Pass thresholds with existing question counts: Recognize 8/10; Build 7/8; Type 7/8; Read & Write 5/6. Exact ratios decide the result; displayed percentages are rounded to one decimal.
-- Previously mastered activities stay complete during later practice, including a failed retake.
-- Flashcard review never affects mastery or unit completion.
+IMPORTANT: The supplied Phase 1.1 ZIP has a blank TEACHER_EMAIL in js/config.js. This file is preserved byte-for-byte. If your deployed copy already contains your working teacher email, retain that configured js/config.js instead of replacing it with the blank file. Otherwise fill in the single TEACHER_EMAIL value before uploading.
 
-## Language and keyboard changes
-Recognize responses are English. Type tasks say “Traduce al inglés / Translate into English.” Task metadata distinguishes translation from answering. Read & Write uses English number words and sentence starters; Sofia is from Honduras and Carlos is from Guatemala. Type and written reading answers autofocus; Enter checks the current input. Incorrect answers stay visible and editable, with focus returned to the field. Normalization accepts case, normal sentence punctuation, whitespace, curly apostrophes and taught contractions, while checking actual words and meaning against explicit answers.
+Completion uses mailto: it opens the student's email application with a prepared message. The student still presses Send. AVANZA cannot verify actual delivery.
 
-Learn keeps instructional notes. Flashcards now show Spanish cues and reveal English, without the full Learn explanations.
+## Progress compatibility
+The original key avanza.phase1.progress.v1 remains unchanged. Unit 1's completed, sessions, mastery, and flash fields stay at the root. Unit 2 uses an additional unit2 object. Existing Phase 1.1 completion remains valid. Keep the same site origin and browser; progress does not transfer across devices or domains.
 
-## Existing progress
-The same localStorage key (avanza.phase1.progress.v1) is retained with a version-2 payload.
-- Existing Learn completion/position and flashcard position carry forward.
-- Phase 1 completed activities and in-progress sessions are archived as legacyCompleted and legacySessions.
-- Earlier unscored practice cannot be treated as measured mastery. Activities 2–5 need a new 80% attempt, in sequence, before new completion marks or email proof are awarded. A brief migration notice explains this on the homepage.
-- New mastery, completion, question position and submitted responses survive refresh. A wrong first response remains scored wrong after refreshing and correcting it.
-- No accounts or synchronization: progress belongs to this browser and site origin. Clearing browser data clears progress. A storage warning appears if saving is unavailable.
+## Source files
+- data/curriculum.js: existing Unit 1 curriculum and future unit names
+- data/unit2.js: new Unit 2 curriculum
+- js/app.js: shared activity rendering, navigation, answer validation, and mailto
+- js/storage.js: compatible browser storage
+- js/mastery.js: unchanged first-response scoring
+- js/config.js: unchanged single teacher email setting
 
-## Open or deploy
-Open index.html to try locally. For GitHub Pages, upload the ZIP contents into the repository root, keeping index.html beside css, js, data and assets. All asset paths are relative. No Node, npm, backend, API key, external font or service is needed to run the app. No repository was changed or deployment performed for this deliverable.
-
-## Files
-- data/curriculum.js: existing curriculum plus unit metadata, task types and sentence starters.
-- js/app.js: navigation and activity UI, typed validation and completion draft.
-- js/mastery.js: reusable first-response recording and threshold calculation.
-- js/storage.js: progress adapter and explicit Phase 1 migration.
-- js/config.js: the single teacher email setting.
-- css/styles.css: original responsive design with small usability fixes.
-
-The three level names are app learning pathways, not official WIDA scores. More units, audio, speaking, accounts and dashboards remain future scope.
+Units 3–10 and Levels 2–3 remain coming soon.
